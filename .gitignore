@@ -1,0 +1,4 @@
+*txt
+*.json
+test_data/
+.history/
