@@ -2,7 +2,6 @@ package puzzler
 
 import (
 	"encoding/base32"
-	"fmt"
 	"io/ioutil"
 	"os"
 )
@@ -26,9 +25,8 @@ func (s *unhahsedSolution) MessageAsFile() {
 
 	for _, layer := range s.Input {
 		if _, err := os.Stat(layer.Message); err == nil {
-			layer.Message = layer.Message + "\n" +openMessageFile(layer.Message)
+			layer.Message = layer.Message + "\n" + openMessageFile(layer.Message)
 
 		}
 	}
-	fmt.Println(s)
 }

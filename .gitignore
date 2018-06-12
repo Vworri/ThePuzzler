@@ -2,3 +2,15 @@
 *.json
 test_data/
 .history/
+./main
+./.git/hooks/pre-commit.sample
+./.git/hooks/applypatch-msg.sample
+./.git/hooks/pre-receive.sample
+./.git/hooks/update.sample
+./.git/hooks/pre-rebase.sample
+./.git/hooks/commit-msg.sample
+./.git/hooks/prepare-commit-msg.sample
+./.git/hooks/pre-applypatch.sample
+./.git/hooks/post-update.sample
+./.git/hooks/pre-push.sample
+./.git/hooks/fsmonitor-watchman.sample

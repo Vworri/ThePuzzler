@@ -1,12 +1,13 @@
 package main
 
 import (
-	"KyrusTech/puzzler"
-	"KyrusTech/puzzler_help"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
+
+	"github.com/ThePuzzler/puzzler"
+	"github.com/ThePuzzler/puzzler_help"
 )
 
 type fullSolution struct {
@@ -22,24 +23,16 @@ type solution struct {
 }
 
 func main() {
-	creationMode("puzzlconfig.json", "mypuzzle.txt")
+	userHandler()
 }
 
 func userHandler() {
 
 	mode := flag.String("m", "s", "c = create a puzzle, s = solve a puzzle")
-	puzzlepath := flag.String("pp", "Nextsolution.txt", "Path of the puzzle")
+	puzzlepath := flag.String("pp", "puzzle.txt", "Path of the puzzle")
 	maxLayers := flag.Int("ln", 10, "layers of hashes you are expecting")
 	solFilePath := flag.String("sp", "Solution.json", "desired filepath of solution")
-	createConfig := flag.String("config", "puzzlconfig.json", "filepath for the congiguration json for puzzle creation")
-	messgaeIsFile := flag.Bool("mf", false, "if the \"messgae\" is a file")
-	littleEndian := flag.Bool("le", false, "wether the file is little endian ( used when -mf = true )")
-	if *messgaeIsFile {
-		panic("feaure not availavle.. yet")
-	}
-	if *littleEndian {
-		panic("feaure not availavle.. yet")
-	}
+	createConfig := flag.String("config", "puzzlconfig.json", "filepath for the configuration json for puzzle creation")
 	flag.Parse()
 	if *maxLayers >= 20 {
 		panic("To many layers! What?! Are you crazy?")
@@ -55,7 +48,7 @@ func userHandler() {
 	case "h":
 		puzzler_help.Help()
 	default:
-		panic("Please use a mode flag \n e.g \n\t -m=c -config=myconfigfil.txt -pp=puzzle.txt ")
+		panic("Please use a mode flag \n e.g \n\t -m=c -config=myconfigfile.txt -pp=puzzle.txt ")
 	}
 
 }
